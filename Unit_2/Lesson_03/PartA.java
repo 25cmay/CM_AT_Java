@@ -1,7 +1,7 @@
 //Caleb May
 //AT Java
 //Mr. Eng
-public class App {
+public class PartA {
     public static void main(String[] args) throws Exception {
         // Amount of cans in a pack
         int cansPerPack = 6;

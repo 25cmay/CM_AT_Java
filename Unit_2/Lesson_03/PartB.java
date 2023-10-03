@@ -4,7 +4,7 @@
 
 import java.util.Scanner;
 
-public class Operators {
+public class PartB {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
         // Declare Cents
