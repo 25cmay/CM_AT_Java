@@ -35,10 +35,11 @@ public class PartB {
         nBlackTiles = nWhiteTiles + 1;
 
 
-        System.out.printf("wall width = %.01.f%n", wallWidth);
+        System.out.printf("wall width = %.01f%n", wallWidth);
         System.out.printf("num tiles = %d%n", nTiles);
         System.out.printf("num white tiles = %d%n", nWhiteTiles);
         System.out.printf("num black tiles = %d%n", nBlackTiles);
+        System.out.println("gap = " + gap);
 
     }
 }
