@@ -29,6 +29,8 @@ public class Project {
         seconds = time / SECINSECOND;
         time = time - (SECINSECOND * seconds);
        
-        System.out.print("The time is: " + hours + ":" + minutes + ":" + seconds);
+        System.out.printf("The time is: %02d", hours);
+        System.out.printf(":%02d", minutes);
+        System.out.printf(":%02d%n", seconds);
     }
 }
