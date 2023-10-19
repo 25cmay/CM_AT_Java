@@ -33,8 +33,12 @@ public class PartA {
             today = DayOfWeek.SATURDAY;
         }
 
-        if (today == DayOfWeek.SATURDAY) {
-            System.out.println("Saturday is my favorite day of the week!");
+        if (today == DayOfWeek.MONDAY) {
+            System.out.println("Enter the age of the customer: ");
+            int age = input.nextInt();
+            if (age < 13 ) {
+                
+            }
         }
 
     }

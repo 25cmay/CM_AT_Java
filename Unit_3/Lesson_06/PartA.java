@@ -22,11 +22,11 @@ public class PartA {
         if (piesBuying < 3) {
             total = piesBuying * PIEPRICE;
             System.out.print("Your total for " + (int)piesBuying);
-            System.out.printf(" pies is $%.2f", total);
+            System.out.printf(" pies is $%.2f%n", total);
         } else {
             total = piesBuying * PIEPRICE * DISCOUNT;
             System.out.print("Your total for " + (int)piesBuying);            
-            System.out.printf(" pies is $%.2f", total);
+            System.out.printf(" pies is $%.2f%n", total);
         }
 
 

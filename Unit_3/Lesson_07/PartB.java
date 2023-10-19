@@ -42,7 +42,8 @@ public class PartB {
 
         if (today == DayOfWeek.MONDAY) {
             System.out.println("You qualify for our Monday discount!");
-
+        
+        }
        
 
     }

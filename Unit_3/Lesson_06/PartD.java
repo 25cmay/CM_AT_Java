@@ -16,27 +16,29 @@ public class PartD {
         final double DISCOUNT24 = .85;
         double total;
 
-        System.out.print("How many pies would you like to buy? ");
+        System.out.print("How many cookies would you like to buy? ");
         int cookiesBuying = in.nextInt();
 
         // Decide the price
 
-        if (cookiesBuying > 6) {
-            total = cookiesBuying * COOKIEPRICE * DISCOUNT6;
+        total = cookiesBuying * COOKIEPRICE;
+        System.out.printf("The pre-discount total is $%.2f%n", total);
+
+        if (cookiesBuying > 24) {
+            total = total * DISCOUNT24;
             System.out.print("Your total for " + cookiesBuying);
-            System.out.printf(" pies is $%.2f", total);
+            System.out.printf(" cookies is $%.2f%n", total);
         } else if (cookiesBuying > 12) {
-            total = cookiesBuying * COOKIEPRICE * DISCOUNT12;
+            total = total * DISCOUNT12;
             System.out.print("Your total for " + cookiesBuying);
-            System.out.printf(" pies is $%.2f", total);
-        } else if (cookiesBuying > 24) {
-            total = cookiesBuying * COOKIEPRICE * DISCOUNT24;
+            System.out.printf(" cookies is $%.2f%n", total);
+        } else if (cookiesBuying > 6) {
+            total = total * DISCOUNT6;
             System.out.print("Your total for " + cookiesBuying);
-            System.out.printf(" pies is $%.2f", total);
+            System.out.printf(" cookies is $%.2f%n", total);
         } else {
-            total = cookiesBuying * COOKIEPRICE;
             System.out.printf("Your total for ", cookiesBuying);
-            System.out.printf(" pies is $%.2f", total);
+            System.out.printf(" cookies is $%.2f%n", total);
         }
 
 
