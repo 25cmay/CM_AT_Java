@@ -6,40 +6,46 @@
 import java.util.Scanner;
 
 public class PartA {
-    // Create a Day of the Week Enumeration
-    public enum DayOfWeek {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY}
-
     static public void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        // Get the Day of the Week.
-        System.out.print("Enter day of the week (0 = SUN, ..., 6 = SAT): ");
-        int val = input.nextInt();
-        DayOfWeek today;
+        // Monday/Tuesday
+        System.out.print("Is it Monday? (true/false) ");
+        boolean Monday = input.nextBoolean();
 
-        if (val == 0) {
-            today = DayOfWeek.SUNDAY;
-        } else if (val == 1) {
-            today = DayOfWeek.MONDAY;
-        } else if (val == 2) {
-            today = DayOfWeek.TUESDAY;
-        } else if (val == 3) {
-            today = DayOfWeek.WEDNESDAY;
-        } else if (val == 4) {
-            today = DayOfWeek.THURSDAY;
-        } else if (val == 5) {
-            today = DayOfWeek.FRIDAY;
+        System.out.print("Is it Tuesday? (true/false) ");
+        boolean Tuesday = input.nextBoolean();
+
+        System.out.print("What is your age? ");
+        int age = input.nextInt();
+
+        System.out.print("What is the cost of your meal? ");
+        double cost = input.nextDouble();
+
+        double discount = 0.0;
+
+        if (Monday) {
+            if (age < 13) {
+                discount = 0.075;
+            } else if (age >= 50) {
+                discount = .15;
+            } else {
+                discount = .05;
+            }
+        } else if (Tuesday) {
+            discount = 0.0;
         } else {
-            today = DayOfWeek.SATURDAY;
-        }
-
-        if (today == DayOfWeek.MONDAY) {
-            System.out.println("Enter the age of the customer: ");
-            int age = input.nextInt();
-            if (age < 13 ) {
-                
+            if (age < 13) {
+                discount = .05;
+            } else if (age >= 50) {
+                discount = .075;
             }
         }
+        
+        double addediscount = cost - (cost * discount);
+        System.out.println("The cost of your meal is $" + addediscount);
+
+
 
     }
 }
