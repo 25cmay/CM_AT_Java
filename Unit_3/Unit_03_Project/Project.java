@@ -4,7 +4,7 @@
  * AT Java
  */
 
- class DoorSystem {
+class DoorSystem {
     // dash switches
     boolean dashLeft = false;
     boolean dashRight = false;

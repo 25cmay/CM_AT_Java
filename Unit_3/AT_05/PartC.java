@@ -2,29 +2,28 @@
 * AT JAVA
 * Mr. Eng
  */
-
 import java.util.Scanner;
+interface Television {
+    public void changeChannel(int newValue);
 
-class Television {
+    public void increaseVolume(int increment);
+    public void decreaseVolume(int decrement);
+
+    public void tvPower(boolean newStatus);
+}
+
+
+class ColorTelevision implements Television {
     // Define needed variables 
     int channel = 1;
     int volume = 10;
-    final int MIN_CHANNEL = 1;
-    final int MAX_CHANNEL = 10;
-    final int MIN_VOLUME = 0;
-    final int MAX_VOLUME = 20;
-    boolean power = true;
+    boolean power = false;
 
     // Create Methods
     public void changeChannel(int newValue) {
-        if (newValue > MAX_CHANNEL && newValue < MIN_CHANNEL) {
-            System.out.print("That is an invalid channel!");
-        } else {
-            channel = newValue;
-        }
+        channel = newValue;
     }
     public void increaseVolume(int increment) {
-        
         volume = volume + increment;
     }
     public void decreaseVolume(int decrement) {
@@ -35,7 +34,7 @@ class Television {
     }
      
     // Print states
-    public void getStates(){
+    public void printstates(){
         System.out.println("Channel: " + channel);
         System.out.println("Volume: " + volume);
         if (power = true) {
@@ -47,15 +46,12 @@ class Television {
 }
 
 
-public class PartB {
+public class PartC {
     public static void main(String[] args) throws Exception {
         Scanner in = new Scanner(System.in);
         
-        Television tv = new Television();
+        Television tv = new ColorTelevision();
 
-        for(int i = 0; i < 3; i++) {
-            System.out.println("Pick a channel (1-10): ");
-            
-        }
+        System.out.print
     }
 }
