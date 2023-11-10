@@ -52,6 +52,8 @@ public class PartC {
         
         Television tv = new ColorTelevision();
 
-        System.out.print
+        // changeChannel(12);
+        // increaseVolume(4);
+
     }
 }

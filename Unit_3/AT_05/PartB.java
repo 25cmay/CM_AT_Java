@@ -16,15 +16,14 @@ class Television {
     boolean power = true;
 
     // Create Methods
-    public void changeChannel(int newValue) {
-        if (newValue > MAX_CHANNEL && newValue < MIN_CHANNEL) {
+    public void changeChannel(int channel) {
+        if (channel > MAX_CHANNEL && channel < MIN_CHANNEL) {
             System.out.print("That is an invalid channel!");
         } else {
-            channel = newValue;
+
         }
     }
     public void increaseVolume(int increment) {
-        
         volume = volume + increment;
     }
     public void decreaseVolume(int decrement) {
@@ -52,10 +51,14 @@ public class PartB {
         Scanner in = new Scanner(System.in);
         
         Television tv = new Television();
-
+        int newChannel = 1;
         for(int i = 0; i < 3; i++) {
             System.out.println("Pick a channel (1-10): ");
-            
+            newChannel = in.nextInt();
+            tv.changeChannel(newChannel);
+
+            tv.increaseVolume(i);
+
         }
     }
 }
