@@ -50,10 +50,17 @@ public class PartC {
     public static void main(String[] args) throws Exception {
         Scanner in = new Scanner(System.in);
         
-        Television tv = new ColorTelevision();
+        ColorTelevision tv = new ColorTelevision();
+        
+        int newValue = 4;
+        int increment = 2;
+        for(int i = 0; i < 2; i++) {
+            tv.changeChannel(newValue + 1);
+            tv.increaseVolume(increment + 1);
+        
+            tv.printstates();
+        }
 
-        // changeChannel(12);
-        // increaseVolume(4);
 
     }
 }

@@ -16,11 +16,11 @@ class Television {
     boolean power = true;
 
     // Create Methods
-    public void changeChannel(int channel) {
+    public void changeChannel(int changeChannel) {
         if (channel > MAX_CHANNEL && channel < MIN_CHANNEL) {
             System.out.print("That is an invalid channel!");
         } else {
-
+            channel = changeChannel;
         }
     }
     public void increaseVolume(int increment) {
@@ -58,6 +58,7 @@ public class PartB {
             tv.changeChannel(newChannel);
 
             tv.increaseVolume(i);
+            tv.getStates();
 
         }
     }
