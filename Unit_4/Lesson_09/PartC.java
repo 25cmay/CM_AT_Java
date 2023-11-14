@@ -2,11 +2,9 @@
 Mr. Eng
 AT Java 
 */
-import java.util.Scanner;
 
 public class PartC {
     public static void main(String[] args) throws Exception {
-    Scanner input = new Scanner (System.in);
 
     double total = 0;
     double times = 0;

@@ -4,13 +4,26 @@ AT Java
 */
 import java.util.Scanner;
 
-public class PartD {
-    public static void main(String[] args) throws Exception {
-    Scanner input = new Scanner (System.in);
+class rollDice {
+    double roll = (Math.random() * 6) + 1;
     
-    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
-public class Dice {}
+
+    
+}
+public class PartD {
     public static void main(String[] args){  
         for (int i = 1; i <= 10; i++){  
             int diceRoll = (int) (Math.random() * 6) + 1;
@@ -18,3 +31,4 @@ public class Dice {}
         }
             System.out.println();
    }
+}

@@ -22,5 +22,6 @@ public class PartB {
     }
     System.out.println("Your phrase has " + eCounter + " 'e's in it.");
 
+
     }
 }
