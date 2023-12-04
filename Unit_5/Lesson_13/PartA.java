@@ -17,9 +17,12 @@ public class PartA {
         g.setColor(Color.YELLOW);
         g.fillOval(0, 0, 400, 400);
         g.setColor(Color.BLACK);
+        g.drawOval(0, 0, 400, 400);
+        g.setColor(Color.BLACK);
         g.fillOval(125, 125, 25, 25);
         g.fillOval(250, 125, 25, 25);
-        g.drawLine(100, 300, 300, 300);
+        g.fillRect(100, 300, 200, 10);
+        
     }
 
     public static enum OS {
