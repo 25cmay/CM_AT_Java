@@ -9,7 +9,7 @@ public class PartC {
     public static double volumer(double radius) {
         double volume;
         volume = Math.pow(radius, 3);
-        volume = volume * 4/3 * Math.PI;
+        volume = volume * 4.0/3.0 * Math.PI;
         return volume;
 
     }
