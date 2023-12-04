@@ -17,8 +17,6 @@ public class PartC {
         final double MINTHETA = 0;
         final double MAXTHETA = 2 * Math.PI;
         final int STEPS = 10000;
-        final int WIDTH = 400;
-        final int HEIGHT = 400;
         final int SCALE = 150;
 
         // Find theta
