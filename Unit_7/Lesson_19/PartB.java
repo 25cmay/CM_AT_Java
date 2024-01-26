@@ -34,7 +34,7 @@ public class PartB {
         double average = total / scores.size();
 
         out.println("----------------");
-        out.printf("Average:   %.2f", average);
+        out.printf("Average:   %6.2f", average);
 
         in.close();
         out.close();
