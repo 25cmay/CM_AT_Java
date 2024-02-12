@@ -33,12 +33,5 @@ public class PartA {
             System.out.printf("Ranked #%3d: %16s | %6.2f%% | %20s%n",
                     rank, name, percentage, region);
         }
- 
-
-
-
-
-
-
     }
 }
