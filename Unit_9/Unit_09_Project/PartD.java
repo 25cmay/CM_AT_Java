@@ -13,7 +13,7 @@ public class PartD {
         Scanner scanner = new Scanner(System.in);
 
         char choice;
-        do {
+        while (Character.toLowerCase(choice) != 'n') {
             System.out.println("Ask the Magic 8 Ball a question: ");
             if (scanner.hasNextLine() == true) {
                 System.out.println("Shaking the Magic 8 Ball...");
@@ -22,7 +22,7 @@ public class PartD {
             }
             System.out.println("Ask another question? (y/n)");
             choice = scanner.nextLine().charAt(0);
-        } while (Character.toLowerCase(choice) != 'n');
+        } 
 
         scanner.close();
     }

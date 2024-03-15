@@ -78,4 +78,14 @@ public class Yard {
         }
     }
 
+    public boolean hasUnmowedGrass() {
+        for (int i = 1; i < yard.length - 1; i++) {
+            for (int j = 1; j < yard[0].length - 1; j++) {
+                if (yard[i][j] == '+') {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

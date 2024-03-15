@@ -60,25 +60,40 @@ public class Project {
 
         // Print yard with mower
         Mower mower = new Mower(mrow, mcolumn, mdirection);
+        clearScreen();
         yard.printYard(mower);
 
         // cut one row.
         while (true) {
+            int idirection = mdirection;
             mower.cutGrass(yard);
-            if (mower.checkGrass(yard)) {
-            mower.moveForward();
-            } else { 
-                break;
-            }
-            Project.clearScreen();
-            yard.printYard(mower);
-            Project.delay(500);
-            
+            if (mower.checkGrass(yard) == false) {
+                // check right
+                mower.turnRight();
+                if (mower.checkGrass(yard) == true) {
+                    mower.moveForward();
+                } else {
+                    mower.turnLeft();
+                    mower.turnLeft();
+                    if(mower.checkGrass(yard) == true) {
+                        mower.moveForward();
+                    } else {
+                        break;
+                    }
 
+                }
+            } else {
+                mower.moveForward();
+            } 
+            clearScreen();
+
+            // Print  yard with mower
+            yard.printYard(mower);
+
+            System.out.println();
+            delay(500);
         }
 
-       // mower.cutGrass(yard);
-        in.close();
     }
 
 }

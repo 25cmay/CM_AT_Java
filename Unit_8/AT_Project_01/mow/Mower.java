@@ -13,15 +13,11 @@ public class Mower {
         this.direction = direction;
     }
 
-    // Update mower position and direction
     public boolean updateMower(Yard yard) {
-        // Check if there's any unmowed spot left
-        if (yard.hasUnmowedGrass()) {
-            // If there is, move to the next spot
+        if (yard.hasUnmowedGrass() == true) {
             moveForward();
             return true;
         } else {
-            // If there isn't, return false
             return false;
         }
     }
