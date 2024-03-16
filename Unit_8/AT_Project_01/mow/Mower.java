@@ -84,13 +84,17 @@ public class Mower {
     // Look for grass
     public boolean checkGrass(Yard yard) {
         if (direction == 0) {
-            return yard.getStatus(row - 1, column) == '+';
+            boolean cell = yard.getStatus(row - 1, column) == '+';
+            return cell;
         } else if  (direction == 1) {
-            return yard.getStatus(row, column + 1) == '+';
+            boolean cell = yard.getStatus(row, column + 1) == '+';
+            return cell;
         } else if  (direction == 2) {
-            return yard.getStatus(row + 1, column) == '+';
-        } else if  (direction == 2) {
-            return yard.getStatus(row, column - 1) == '+';
+            boolean cell = yard.getStatus(row + 1, column) == '+';
+            return cell;
+        } else if  (direction == 3) {
+            boolean cell = yard.getStatus(row, column - 1) == '+';
+            return cell;
         }
         return false;
     }

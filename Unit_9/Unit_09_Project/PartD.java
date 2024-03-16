@@ -3,27 +3,29 @@
  * Mr. Eng
  * AT Java
  */
-
 import org.derryfield.toys.Magic8Ball;
 import java.util.Scanner;
 
 public class PartD {
     public static void main(String[] args) {
         Magic8Ball magic8Ball = new Magic8Ball();
-        Scanner scanner = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
+        String userInput;
 
-        char choice;
-        while (Character.toLowerCase(choice) != 'n') {
-            System.out.println("Ask the Magic 8 Ball a question: ");
-            if (scanner.hasNextLine() == true) {
-                System.out.println("Shaking the Magic 8 Ball...");
-                String answer = magic8Ball.shake();
-                System.out.println("The Magic 8 Ball says: " + answer);
+        do {
+            System.out.println("Ask the Magic 8 Ball a question (or 'q' to quit): ");
+            userInput = in.nextLine();
+
+            if (!userInput.equalsIgnoreCase("q")) {
+                magic8Ball.shake();
+                System.out.println("Magic 8 Ball says: " + magic8Ball.shake());
             }
-            System.out.println("Ask another question? (y/n)");
-            choice = scanner.nextLine().charAt(0);
-        } 
 
-        scanner.close();
+        } while (!userInput.equalsIgnoreCase("q"));
+
+        System.out.println("Exiting the Magic 8 Ball program.");
+        
+        in.close();
+
     }
 }
