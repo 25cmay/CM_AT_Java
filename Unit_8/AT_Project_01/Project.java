@@ -98,57 +98,51 @@ public class Project {
             }
         } else if (cut == 2) {
             // cut line by line
-            int lastdir = mdirection;
-            mower.cutGrass(yard);
             while (true) {
-                mower.cutGrass(yard);
                 if (mower.checkGrass(yard) == false) {
-                    // check right
                     mower.turnRight();
-                    if (mower.checkGrass(yard) == true) {
-                        while (mower.checkGrass(yard) == true) {
-                            mower.cutGrass(yard);
-                            mower.moveForward();
-                        }
-                        mower.turnRight();
-                        if (mower.checkGrass(yard) == true) {
-                            mower.moveForward();
-                            mower.cutGrass(yard);
-                            mower.turnRight();
-                        } else {
-                            mower.turnLeft();
-                            mower.turnLeft();
-                            mower.moveForward();
-                            mower.cutGrass(yard);
-                            mower.turnRight();
-                        }
-                    } else {
-                        mower.turnLeft();
-                        mower.turnLeft();
-                        if (mower.checkGrass(yard) == true) {
-                            mower.moveForward();
-                            mower.cutGrass(yard);
-                            mower.turnLeft();
-
-                        } else {
-                            break;
-                        }
-
-                    }
-                } else {
-                    mower.moveForward();
-                    mower.turnLeft();
                 }
-                clearScreen();
-
-                // Print yard with mower
-                yard.printYard(mower);
-
-                System.out.println();
-                delay(500);
-
+                if (mower.checkGrass(yard) == false) {
+                    mower.turnRight();
+                }
+                while (mower.checkGrass(yard) == true) {
+                    mower.cutGrass(yard);
+                    mower.updateMower(yard);
+                    clearScreen();
+                    yard.printYard(mower);
+                    System.out.println();
+                    delay(500);
+                }
+                mower.turnRight();
+                if (mower.checkGrass(yard) == false) {
+                    mower.turnLeft();
+                    mower.turnLeft();
+                    mower.cutGrass(yard);
+                    mower.updateMower(yard);
+                    clearScreen();
+                    yard.printYard(mower);
+                    System.out.println();
+                    delay(500);
+                    mower.turnLeft();
+                } else if (mower.checkGrass(yard) == true) {
+                    mower.cutGrass(yard);
+                    mower.updateMower(yard);
+                    clearScreen();
+                    yard.printYard(mower);
+                    System.out.println();
+                    delay(500);
+                    mower.turnRight();
+                }
+                while (mower.checkGrass(yard) == true) {
+                    mower.cutGrass(yard);
+                    mower.updateMower(yard);
+                    clearScreen();
+                    yard.printYard(mower);
+                    System.out.println();
+                    delay(500);
+                }
             }
-
         }
+        in.close();
     }
 }
