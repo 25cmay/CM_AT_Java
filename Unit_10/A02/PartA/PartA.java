@@ -1,3 +1,8 @@
+/*
+ * Caleb May
+ * Mr. Eng
+ * AT Java
+ */
 package PartA;
 import PartA.animatePartA.Application;
 

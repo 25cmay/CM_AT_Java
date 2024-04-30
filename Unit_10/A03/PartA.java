@@ -1,4 +1,8 @@
-
+/*
+ * Caleb May
+ * Mr. Eng
+ * AT Java
+ */
 
 import javax.sound.sampled.LineUnavailableException;
 import sound.ToneGenerator;
