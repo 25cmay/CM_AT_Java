@@ -32,6 +32,9 @@ public class Board extends JPanel {
     private int xSpeed = 2;
     private int ySpeed = 2;
 
+    private SoundClip sitarClip;
+    private SoundClip owClip;
+
     // constructor
     public Board() {
         // set background color of the board and default size.
@@ -44,13 +47,16 @@ public class Board extends JPanel {
         x = B_WIDTH / 2; // Start in the middle of the screen
         y = B_HEIGHT / 2;
         Random rand = new Random();
-        dx = rand.nextInt(5) + 1; // Random horizontal velocity from 1 to 5
-        dy = rand.nextInt(5) + 1; // Random vertical velocity from 1 to 5
+        xSpeed = rand.nextInt(5) + 1; // Random horizontal velocity from 1 to 5
+        ySpeed = rand.nextInt(5) + 1; // Random vertical velocity from 1 to 5
             
         // Load media clips
-        sitarClip = new SoundClip("media/sitar_music.wav");
+        sitarClip = new SoundClip("media/sitar.wav");
         sitarClip.setLoop(true); // Loop continuously
-        owClip = new SoundClip("media/ow_sound.wav");
+        sitarClip.open();
+        sitarClip.play();
+        owClip = new SoundClip("media/ow.wav");
+        owClip.open();
         // photo
         try {
             File imgFile = new File("media/Andy.png");
@@ -60,20 +66,9 @@ public class Board extends JPanel {
             System.err.println(e.getMessage());
         }
 
-        // sitar
-        try {
-            SoundClip sitarClip = new SoundClip("media/sitar.wav");
-            
-        } catch (Exception e) {
-            System.err.println("unable to open audio file!");
-            System.err.println(e.getMessage());
-        }
-
         timer = new Timer();
         timer.scheduleAtFixedRate(new UpdateAnimation(),
                 INITIAL_DELAY, PERIOD_INTERVAL);
-        sitarClip.open();
-        sitarClip.play();
                 }
 
     // override paint component
@@ -94,12 +89,14 @@ public class Board extends JPanel {
         public void run() {
 
             x += xSpeed;
-            if (x > B_WIDTH) {
-                x = 0;
+            if (x > B_WIDTH || x < 0) {
+                xSpeed = -xSpeed;
+                owClip.play();
             }
             y += ySpeed;
-            if (y > B_WIDTH) {
-                y = 0;
+            if (y > B_WIDTH || y < 0) {
+                ySpeed = - ySpeed;
+                owClip.play();
             }
 
             angle += 5;
