@@ -15,21 +15,17 @@ public class Application extends JFrame {
         OS os = checkOS();
         switch (os) {
             case WIN:
-                System.out.println("I'm a PC");
                 border_width = 7;
                 bar_height = 30;
                 break;
             case MAC:
-                System.out.println("I'm a Mac");
                 border_width = 0;
                 bar_height = 28;
                 break;
             case LINUX:
                 // I don't know what the values are for Linux.
-                System.out.println("I'm a Linux machine");
                 break;
             case OTHER:
-                System.out.println("I'm OTHER");
                 break;
         }
         Board board = new Board();

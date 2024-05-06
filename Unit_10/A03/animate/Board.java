@@ -34,6 +34,7 @@ public class Board extends JPanel {
 
     private SoundClip sitarClip;
     private SoundClip owClip;
+    private boolean loop;
 
     // constructor
     public Board() {

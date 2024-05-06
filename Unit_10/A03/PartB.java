@@ -4,14 +4,15 @@
  * AT Java
  */
 
-import animate.Application; 
-import sound.SoundClip;
+import animate.Application;
+import java.awt.EventQueue;
 
 public class PartB {
     public static void main(String[] args) {
-        Application myApp = new Application("Demo App");
-        myApp.setVisible(true);
-
-       
+        
+        EventQueue.invokeLater(() -> {
+            Application myApp = new Application("Title");
+            myApp.setVisible(true);
+        });
     }
 }
