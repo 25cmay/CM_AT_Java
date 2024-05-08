@@ -1,3 +1,8 @@
+/*
+ * Caleb May
+ * AT Java
+ * Mr. Eng
+ */
 import animate.*;
 
 public class PartA {
