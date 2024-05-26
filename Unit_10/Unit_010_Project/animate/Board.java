@@ -3,17 +3,21 @@ package animate;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JPanel;
 
 public class Board extends JPanel implements KeyListener{
    private static final int B_WIDTH = 1392;
    private static final int B_HEIGHT = 783;
    private static final int FLOOR = B_HEIGHT - 25;
-   private static final int SIDE_LEN = 150;
    private Cannon cannon;
-   //private BufferedImage cannonimage;
- 
+   private Cannonball cannonball;
+   private Timer timer;
+   private final int INITIAL_DELAY = 0; 
+   private final int TIMER_INTERVAL = 20;
+
+
 
     // constructor
    public Board() {
@@ -24,12 +28,23 @@ public class Board extends JPanel implements KeyListener{
       cannon.setX(60);
       cannon.setY(B_HEIGHT - 60);
 
+      cannonball = new Cannonball(0, 1, FLOOR);
+
       this.setFocusable(true);
       this.addKeyListener(this);
 
+      timer = new Timer();
+      timer.scheduleAtFixedRate(new UpdateAnimation(), INITIAL_DELAY, TIMER_INTERVAL);
+
     }
 
-    // override paint component
+   private class UpdateAnimation extends TimerTask {
+      public void run() {
+         cannonball.updateBall();
+         repaint();
+      }
+   }
+   
    public void paintComponent(Graphics g) {
       super.paintComponent(g);
 
@@ -42,22 +57,28 @@ public class Board extends JPanel implements KeyListener{
       g.fillRect(0, FLOOR + 1, B_WIDTH, B_HEIGHT - FLOOR);
 
       cannon.draw(g2d);
+      cannonball.draw(g2d);
+      displayInfo(g2d);
     }
 
-   @Override
+   private void displayInfo(Graphics2D g2d) {
+      g2d.setColor(Color.RED);
+      g2d.drawString("Press LEFT/RIGHT arrows to adjust the angle", 550, 20);
+      g2d.drawString("Press UP/DOWN arrows to adjust time scale", 550, 40);
+      g2d.drawString("Press SPACE to fire", 550, 60);
+      g2d.drawString("Angle = " + (double) Math.round(Math.abs(cannon.getAngle())) + " deg", 550, 80);
+      g2d.drawString("Timescale = " + cannonball.getTimeScale(), 550, 100);
+    }
+
+
    public void keyTyped(KeyEvent e) {
-      // TODO Auto-generated method stub
-      // throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
    }
 
-   @Override
    public void keyPressed(KeyEvent e) {
-      // System.out.println("A key was presed!");
 
       if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-         // snd.play();
          System.out.println("SPACE Key was pressed");
-         cannon.fire();
+         cannon.fire(cannonball);
       }
       if(e.getKeyCode() == KeyEvent.VK_LEFT) {
          System.out.println("LEFT Key was pressed");
@@ -71,20 +92,18 @@ public class Board extends JPanel implements KeyListener{
       }
       if(e.getKeyCode() == KeyEvent.VK_UP) {
          System.out.println("UP Key was pressed");
+         cannonball.changeTimeScale(1);
+         repaint();
       }
       if(e.getKeyCode() == KeyEvent.VK_DOWN) {
          System.out.println("DOWN Key was pressed");
+         cannonball.changeTimeScale(-1);
+         repaint();
       }
-      //snd.play();
-      // TODO Auto-generated method stub
-      // throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
    }
 
-   @Override
+
    public void keyReleased(KeyEvent e) {
-      // TODO Auto-generated method stub
-      // throw new UnsupportedOperationException("Unimplemented method 'keyReleased'");
-   }
 
-    
+   }    
 }

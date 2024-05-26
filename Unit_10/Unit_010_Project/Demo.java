@@ -3,7 +3,6 @@
  * Mr. Eng
  * AT Java
  */
-// import package
 import java.awt.EventQueue;
 
 import animate.*;
